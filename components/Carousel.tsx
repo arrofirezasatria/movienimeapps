@@ -13,7 +13,7 @@ import ButtonBase from "@mui/material/ButtonBase";
 
 const carouselItems = [
   {
-    name: "One",
+    name: "Kimetsu No Yaiba",
     desc: "Aliqua aliqua laborum ea in aliqua ex tempor ipsum. Reprehenderit ad dolore ea reprehenderit incididunt nulla veniam. Exercitation ex ut ex enim ipsum amet tempor est dolor consectetur est dolor in. Esse mollit velit sunt do nisi ut magna est nulla enim pariatur in fugiat incididunt.",
     rating: "9.5",
     img: "KnY.jpg",
@@ -21,9 +21,9 @@ const carouselItems = [
     genre: ["action", "Supernatural"],
   },
   {
-    name: "Two",
+    name: "Jojo Bizarre Adventure Stone Ocean",
     desc: "Ullamco qui consequat sint excepteur. Laboris aute anim eu magna ad ipsum cupidatat irure do id. Mollit quis minim deserunt nulla qui labore incididunt officia. Ipsum ex proident duis dolor duis ad tempor cillum voluptate magna veniam irure non ullamco. Tempor mollit voluptate cillum irure veniam eiusmod est laborum.",
-    rating: "8.5",
+    rating: "5.5",
     img: "KnY.jpg",
     bgColor: "blue",
     genre: ["Slice of Life", "School"],
@@ -74,38 +74,66 @@ export default function MyCarousel() {
   return (
     <Carousel>
       {carouselItems.map((item, i) => (
-        <Grid
-          container
-          key={i}
+        <Box
           sx={{
             display: "flex",
-            height: "560px" /* 
-            backgroundColor: item.bgColor, */,
-            backgroundImage: `url(${item.img}})`,
+            justifyContent: "flex-start",
+            height: "600px",
+            backgroundColor: "red",
           }}
         >
-          <Grid item xs={12} md={5} lg={5}>
-            <Stack spacing={1} sx={{ margin: "252px 52px 52px 52px" }}>
-              <Box>
-                <Typography
-                  component="h2"
-                  variant="h4"
-                  sx={{ fontWeight: "bold" }}
-                >
-                  {item.name}
-                </Typography>
-                <Genre />
-              </Box>
-              <Rating name="rating" value={4.2} precision={0.5} readOnly />
-              <Typography
-                sx={{ display: { xs: "none", sm: "none", md: "initial" } }}
-              >
-                {item.desc}
-              </Typography>
+          <Box sx={{}}></Box>
+          <Stack
+            sx={{
+              justifyContent: "flex-end",
+              paddingLeft: 8,
+              paddingBottom: 8,
+            }}
+          >
+            <Stack>
+              <Box>Spotlight</Box>
+              <Box>Title</Box>
+              <Box>Genre</Box>
+              <Box>Desc</Box>
             </Stack>
-          </Grid>
-        </Grid>
+            <Stack direction="row">
+              <Box>a</Box>
+              <Box>b</Box>
+            </Stack>
+          </Stack>
+        </Box>
       ))}
     </Carousel>
   );
 }
+
+/*         <Grid
+          container
+          key={i}
+          sx={{
+            display: "flex",
+            height: "600px",
+            backgroundImage: `url(${item.img}})`,
+          }}
+          >
+            <Grid item xs={12} md={5} lg={5}>
+              <Stack spacing={1} sx={{ margin: "252px 52px 52px 52px" }}>
+                <Box>
+                  <Typography
+                    component="h1"
+                    variant="h3"
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    {item.name}
+                  </Typography>
+                  <Genre />
+                </Box>
+                <Rating name="rating" value={4.2} precision={0.5} readOnly />
+                <Typography
+                  sx={{ display: { xs: "none", sm: "none", md: "initial" } }}
+                >
+                  {item.desc}
+                </Typography>
+              </Stack>
+            </Grid>
+          </Grid>  */
