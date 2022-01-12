@@ -11,6 +11,11 @@ import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import ButtonBase from "@mui/material/ButtonBase";
 
+import PlayCircleIcon from "@mui/icons-material/PlayCircle";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import StarRateIcon from "@mui/icons-material/StarRate";
+
 const carouselItems = [
   {
     name: "Kimetsu No Yaiba",
@@ -78,6 +83,8 @@ export default function MyCarousel() {
           sx={{
             display: "flex",
             justifyContent: "flex-start",
+            alignContent: "flex-end",
+            alignItems: "flex-end",
             height: "600px",
             backgroundColor: "red",
           }}
@@ -88,17 +95,136 @@ export default function MyCarousel() {
               justifyContent: "flex-end",
               paddingLeft: 8,
               paddingBottom: 8,
+              width: "720px",
+              maxHeight: " 520px",
             }}
           >
             <Stack>
-              <Box>Spotlight</Box>
-              <Box>Title</Box>
-              <Box>Genre</Box>
-              <Box>Desc</Box>
+              <Box>
+                <Typography
+                  variant="h6"
+                  component="span"
+                  sx={{ fontWeight: "bold" }}
+                >
+                  #1 Spotlight
+                </Typography>
+              </Box>
+              <Box>
+                <Typography
+                  component="h2"
+                  variant="h3"
+                  sx={{ fontWeight: "bold" }}
+                >
+                  Kimetsu No Yaiba
+                </Typography>
+              </Box>
+              <Box>
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  alignItems="center"
+                  alignContent="center"
+                >
+                  <Typography component="span" variant="subtitle2">
+                    #Msytery
+                  </Typography>
+                  <Typography component="span" variant="subtitle2">
+                    #Psycological
+                  </Typography>
+                  <Typography component="span" variant="subtitle2">
+                    #Thriller
+                  </Typography>
+
+                  <Typography
+                    component="span"
+                    variant="caption"
+                    sx={{
+                      backgroundColor: "yellow",
+                      borderRadius: "6px",
+                      px: "4px",
+                      pt: "2px",
+                    }}
+                  >
+                    ONA
+                  </Typography>
+                  <Typography
+                    component="span"
+                    variant="caption"
+                    sx={{
+                      backgroundColor: "yellow",
+                      borderRadius: "6px",
+                      px: "4px",
+                      pt: "2px",
+                    }}
+                  >
+                    HD
+                  </Typography>
+                  <Stack
+                    direction="row"
+                    spacing={0.25}
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      alignContent: "center",
+                    }}
+                  >
+                    <StarRateIcon
+                      sx={{
+                        fontSize: "20px",
+                        color: "yellow",
+                        paddingTop: "2px",
+                      }}
+                    />
+                    <Typography
+                      component="span"
+                      variant="subtitle2"
+                      sx={{
+                        marginBottom: "-5px !important",
+
+                        fontWeight: "bold",
+                      }}
+                    >
+                      4.5
+                    </Typography>
+                  </Stack>
+                </Stack>
+              </Box>
+              <Box sx={{ pt: 2 }}>
+                Dolor cupidatat ea officia officia est eiusmod cupidatat id ut.
+                Laboris dolor est fugiat sint nostrud commodo laboris ullamco
+                voluptate Lorem sint sunt. Nulla pariatur ut aute commodo
+                deserunt in exercitation minim aliqua dolor reprehenderit.
+              </Box>
             </Stack>
-            <Stack direction="row">
-              <Box>a</Box>
-              <Box>b</Box>
+            <Stack direction="row" sx={{ paddingTop: 4 }} spacing={2}>
+              <Button
+                disableRipple
+                sx={{
+                  backgroundColor: "yellow",
+                  borderRadius: 8,
+                  px: 2,
+                }}
+                startIcon={<PlayCircleIcon />}
+              >
+                <Typography
+                  sx={{ textTransform: "none", fontWeight: "bold" }}
+                  variant="subtitle1"
+                >
+                  Watch Now
+                </Typography>
+              </Button>
+              <Button
+                variant="outlined"
+                sx={{ borderRadius: 8, backgroundColor: "grey" }}
+                endIcon={<ArrowForwardIosIcon sx={{ fontSize: "small" }} />}
+              >
+                <Typography
+                  variant="subtitle1"
+                  sx={{ textTransform: "none", fontWeight: "bold" }}
+                >
+                  Detail
+                </Typography>
+              </Button>
             </Stack>
           </Stack>
         </Box>
