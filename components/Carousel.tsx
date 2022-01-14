@@ -11,10 +11,16 @@ import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import ButtonBase from "@mui/material/ButtonBase";
 
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import StarRateIcon from "@mui/icons-material/StarRate";
+import { ThemeProvider } from "@emotion/react";
+
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
 
 const carouselItems = [
   {
@@ -75,7 +81,7 @@ const Genre = () => {
   );
 };
 
-export default function MyCarousel() {
+const MyCarousel = () => {
   return (
     <Carousel>
       {carouselItems.map((item, i) => (
@@ -93,8 +99,9 @@ export default function MyCarousel() {
           <Stack
             sx={{
               justifyContent: "flex-end",
-              paddingLeft: 8,
+              px: { xs: 4, md: 8 },
               paddingBottom: 8,
+
               width: "720px",
               maxHeight: " 520px",
             }}
@@ -189,7 +196,7 @@ export default function MyCarousel() {
                   </Stack>
                 </Stack>
               </Box>
-              <Box sx={{ pt: 2 }}>
+              <Box sx={{ pt: 2, display: { xs: "none", sm: "initial" } }}>
                 Dolor cupidatat ea officia officia est eiusmod cupidatat id ut.
                 Laboris dolor est fugiat sint nostrud commodo laboris ullamco
                 voluptate Lorem sint sunt. Nulla pariatur ut aute commodo
@@ -231,35 +238,12 @@ export default function MyCarousel() {
       ))}
     </Carousel>
   );
-}
+};
 
-/*         <Grid
-          container
-          key={i}
-          sx={{
-            display: "flex",
-            height: "600px",
-            backgroundImage: `url(${item.img}})`,
-          }}
-          >
-            <Grid item xs={12} md={5} lg={5}>
-              <Stack spacing={1} sx={{ margin: "252px 52px 52px 52px" }}>
-                <Box>
-                  <Typography
-                    component="h1"
-                    variant="h3"
-                    sx={{ fontWeight: "bold" }}
-                  >
-                    {item.name}
-                  </Typography>
-                  <Genre />
-                </Box>
-                <Rating name="rating" value={4.2} precision={0.5} readOnly />
-                <Typography
-                  sx={{ display: { xs: "none", sm: "none", md: "initial" } }}
-                >
-                  {item.desc}
-                </Typography>
-              </Stack>
-            </Grid>
-          </Grid>  */
+export default function MyCarouselReturn() {
+  return (
+    <ThemeProvider theme={theme}>
+      <MyCarousel />
+    </ThemeProvider>
+  );
+}
