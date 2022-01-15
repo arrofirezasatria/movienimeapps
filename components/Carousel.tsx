@@ -86,6 +86,7 @@ const MyCarousel = () => {
     <Carousel>
       {carouselItems.map((item, i) => (
         <Box
+          key={i}
           sx={{
             display: "flex",
             justifyContent: "flex-start",
@@ -95,7 +96,6 @@ const MyCarousel = () => {
             backgroundColor: "red",
           }}
         >
-          <Box sx={{}}></Box>
           <Stack
             sx={{
               justifyContent: "flex-end",
@@ -125,23 +125,19 @@ const MyCarousel = () => {
                   Kimetsu No Yaiba
                 </Typography>
               </Box>
-              <Box>
+
+              <Stack
+                spacing={1}
+                alignItems="center"
+                alignContent="center"
+                justifyContent="flex-start"
+                sx={{ alignItems: "flex-start" }}
+              >
                 <Stack
                   direction="row"
                   spacing={1}
-                  alignItems="center"
-                  alignContent="center"
+                  sx={{ alignItems: "flex-start" }}
                 >
-                  <Typography component="span" variant="subtitle2">
-                    #Msytery
-                  </Typography>
-                  <Typography component="span" variant="subtitle2">
-                    #Psycological
-                  </Typography>
-                  <Typography component="span" variant="subtitle2">
-                    #Thriller
-                  </Typography>
-
                   <Typography
                     component="span"
                     variant="caption"
@@ -166,6 +162,7 @@ const MyCarousel = () => {
                   >
                     HD
                   </Typography>
+
                   <Stack
                     direction="row"
                     spacing={0.25}
@@ -187,7 +184,6 @@ const MyCarousel = () => {
                       variant="subtitle2"
                       sx={{
                         marginBottom: "-5px !important",
-
                         fontWeight: "bold",
                       }}
                     >
@@ -195,7 +191,20 @@ const MyCarousel = () => {
                     </Typography>
                   </Stack>
                 </Stack>
-              </Box>
+
+                <Stack direction="row" spacing={1}>
+                  <Typography component="span" variant="subtitle2">
+                    #Msytery
+                  </Typography>
+                  <Typography component="span" variant="subtitle2">
+                    #Psycological
+                  </Typography>
+                  <Typography component="span" variant="subtitle2">
+                    #Thriller
+                  </Typography>
+                </Stack>
+              </Stack>
+
               <Box sx={{ pt: 2, display: { xs: "none", sm: "initial" } }}>
                 Dolor cupidatat ea officia officia est eiusmod cupidatat id ut.
                 Laboris dolor est fugiat sint nostrud commodo laboris ullamco
@@ -217,7 +226,13 @@ const MyCarousel = () => {
                   sx={{ textTransform: "none", fontWeight: "bold" }}
                   variant="subtitle1"
                 >
-                  Watch Now
+                  Watch{" "}
+                  <Box
+                    component="span"
+                    sx={{ display: { xs: "none", sm: "initial" } }}
+                  >
+                    Now
+                  </Box>
                 </Typography>
               </Button>
               <Button
